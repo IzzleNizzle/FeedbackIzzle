@@ -1,0 +1,107 @@
+.feedbackizzle button {
+  vertical-align: top;
+  background-color: yellow;
+}
+
+.feedbackizzle {
+  background-color: #7777e157;
+  text-align: center;
+  position: fixed;
+  bottom: 0px;
+  right: 27px;
+  width: 46px;
+  height: 29px;
+  border: 1px #4d4df6 solid;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.4s, width 0.5s;
+  transition-timing-function: ease-in;
+}
+
+.feedbackizzle .feedbackizzle-style div {
+  transition: text-shadow 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.feedbackizzle.expand {
+  background-color: #6e6ee0;
+  color: white;
+  width: 270px;
+  height: 45px;
+}
+
+.feedbackizzle.done {
+  width: initial;
+}
+
+.feedbackizzle.expand.stage-2 {
+  height: 180px;
+}
+
+.feedbackizzle.expand .feedback-choices,
+.feedbackizzle.expand .feedback-choices div {
+  display: inline-block;
+}
+
+.feedbackizzle.expand .thoughts,
+.feedbackizzle.expand .feedback-choices div {
+  padding: 3px 10px 0;
+}
+
+.feedbackizzle div.thoughts {
+  z-index: 1;
+  padding: 3px 10px 0 15px;
+}
+
+.feedbackizzle .thoughts:hover,
+.feedbackizzle .thoughts:focus,
+.feedbackizzle.expand .feedback-choices div:hover,
+.feedbackizzle.expand .feedback-choices div:focus {
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
+}
+
+.feedbackizzle .thoughts:active,
+.feedbackizzle.expand .feedback-choices div:active {
+  text-shadow: rgba(0, 0, 0, 0.9) 1px 1px 4px;
+  transform: translateY(2px);
+}
+
+.feedbackizzle .feedback-choices {
+  display: none;
+  font-size: 0;
+}
+
+.feedbackizzle .thoughts {
+  display: inline-block;
+  cursor: default;
+  padding: 3px 10px;
+  float: right;
+}
+
+.feedbackizzle .feedbackizzle-style .feedback-choices div {
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.feedbackizzle.expand .thoughts {
+  font-size: initial;
+}
+
+.feedbackizzle .noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Chrome and Opera */
+}
+
+.hidden {
+  display: none;
+}
