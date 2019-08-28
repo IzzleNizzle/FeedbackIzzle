@@ -1,20 +1,42 @@
 {
-  "name": "FeedbackIzzle",
-  "version": "1.0.0",
+  "name": "feedbackizzle",
+  "version": "1.0.3",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "peerDependencies": {
+    "react": "^16.6.3"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "webpack": "^4.39.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IzzleNizzle/FeedbackIzzle.git"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Iz P",
+    "email": "ctrlzdev@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/IzzleNizzle/FeedbackIzzle/issues"
   },
-  "homepage": "https://github.com/IzzleNizzle/FeedbackIzzle#readme"
+  "homepage": "https://github.com/IzzleNizzle/FeedbackIzzle#readme",
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^3.2.0",
+    "webpack-cli": "^3.3.7"
+  }
 }
