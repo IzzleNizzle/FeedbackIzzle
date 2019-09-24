@@ -1,7 +1,7 @@
 {
   "name": "feedbackizzle",
-  "version": "1.0.5",
-  "description": "A tool for receiving feedback",
+  "version": "1.0.6",
+  "description": "A place for some of my widgets",
   "main": "dist/bundle.js",
   "scripts": {
     "start": "webpack --watch",
