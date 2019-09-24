@@ -1,34 +1,48 @@
-var path = require('path');
+const path = require('path');
+
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'index.js',
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'commonjs2'
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
-                include: path.resolve(__dirname, 'src'),
-                exclude: /(node_modules|bower_components|build)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
-                }
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
             },
             {
-                test: /\.css$/i,
-                loader: 'css-loader',
-                options: {
-                    modules: false,
-                },
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
             }
+
         ]
     },
     externals: {
-        'react': 'commonjs react'
+        // Don't bundle react or react-dom
+        react: {
+            commonjs: "react",
+            commonjs2: "react",
+            amd: "React",
+            root: "React"
+        },
+        "react-dom": {
+            commonjs: "react-dom",
+            commonjs2: "react-dom",
+            amd: "ReactDOM",
+            root: "ReactDOM"
+        }
     }
 };

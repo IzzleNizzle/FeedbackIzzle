@@ -1,19 +1,17 @@
 {
   "name": "feedbackizzle",
-  "version": "1.0.3",
-  "description": "",
-  "main": "build/index.js",
+  "version": "1.0.5",
+  "description": "A tool for receiving feedback",
+  "main": "dist/bundle.js",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack"
   },
   "peerDependencies": {
-    "react": "^16.6.3"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
-  "dependencies": {
-    "react": "^16.6.3",
-    "webpack": "^4.39.2"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IzzleNizzle/FeedbackIzzle.git"
@@ -29,14 +27,15 @@
   },
   "homepage": "https://github.com/IzzleNizzle/FeedbackIzzle#readme",
   "devDependencies": {
-    "@babel/core": "7.5.5",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
     "css-loader": "^3.2.0",
-    "webpack-cli": "^3.3.7"
+    "file-loader": "^4.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
