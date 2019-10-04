@@ -1,6 +1,8 @@
  .containment {
+   // As this package will be imported into pages, I am taking extra precautions to avoid conflicting css selectors
+   @import "./Thoughts/thought.less";
 
-   @import "./test.less";
+
    position: fixed;
    bottom: -30px;
    right: 27px;
