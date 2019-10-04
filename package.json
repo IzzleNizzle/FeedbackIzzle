@@ -1,6 +1,6 @@
 {
   "name": "feedbackizzle",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "A place for some of my widgets",
   "main": "dist/main.bundle.js",
   "scripts": {
