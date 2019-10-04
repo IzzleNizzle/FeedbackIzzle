@@ -4,13 +4,22 @@
 
 
    position: fixed;
-   bottom: -30px;
+   bottom: -145px;
    right: 27px;
    text-align: right;
    transition: bottom 0.4s, background-color 0.5s, border 0.6s;
    transition-timing-function: ease-in;
 
-   &.expand .thoughts {
+   &.stage-1 {
+     bottom: -100px;
+   }
+
+   &.stage-2 {
+     bottom: 0px;
+   }
+
+   &.stage-1 .thoughts,
+   &.stage-2 .thoughts {
      background-color: #6e6ee0;
      bottom: -1px;
      border: 1px #4d4df6 solid;
@@ -29,12 +38,12 @@
 
    }
 
-   &.expand {
-     bottom: 0;
-   }
-
    .hidden {
      display: none;
+   }
+
+   .contact {
+     margin-bottom: 5px;
    }
  }
 
@@ -43,7 +52,7 @@
    text-align: center;
 
    width: 46px;
-   height: 29px;
+   height: 145px;
    // border: 1px #8777e100 solid;
    border-radius: 2px 0px 0 0;
    transition: height 0.4s, width 0.5s, border 0.6s;
@@ -57,8 +66,8 @@
    &.expand {
      background-color: #6e6ee0;
      color: white;
-     width: 250px;
-     height: 45px;
+     width: 270px;
+     //  height: 45px;
      border: 1px #4d4df6 solid;
      border-bottom: none;
    }
@@ -67,9 +76,9 @@
      width: initial;
    }
 
-   &.expand.stage-2 {
-     height: 145px;
-   }
+   //  &.expand.stage-2 {
+   //    height: 145px;
+   //  }
 
    &.expand .feedback-choices,
    &.expand .feedback-choices div {
@@ -130,17 +139,25 @@
      top: -27px;
    }
 
-   & .typed-input {
-     display: none;
-   }
-
    &.expand.stage-2 .typed-input {
      display: block;
    }
 
+   .typed-input {
+     text-align: left;
+     padding: 10px;
+   }
+
+   input {
+     margin-bottom: 10px;
+   }
+
    button {
-     vertical-align: top;
-     background-color: yellow;
+     margin: 0 5px;
+     float: right;
+     background: #00000057;
+     border: none;
+     cursor: pointer;
    }
 
    & .noselect {

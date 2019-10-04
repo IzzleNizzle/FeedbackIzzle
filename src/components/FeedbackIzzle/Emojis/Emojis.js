@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function Emojis(props) {
+export default function Emojis({ stageCount, nextStage, setFeedback } = props) {
+  const options = ["😀", "😐", "😡"];
   return (
     <div
       className="feedback-choices"
@@ -8,9 +9,17 @@ export default function Emojis(props) {
         e.stopPropagation();
       }}
     >
-      <div className="happy">😀</div>
-      <div className="meh">😐</div>
-      <div className="upset">😡</div>
+      {options.map((emoji, ind) => (
+        <div
+          key={ind}
+          onClick={() => {
+            stageCount === 1 ? nextStage() : null;
+            setFeedback(ind);
+          }}
+        >
+          {emoji}
+        </div>
+      ))}
     </div>
   );
 }

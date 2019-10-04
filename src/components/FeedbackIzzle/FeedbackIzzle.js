@@ -13,18 +13,6 @@ export default function FeedbackIzzle() {
   const $typeInput = () =>
     document.querySelector(".feedbackizzle div.typed-input");
 
-  useEffect(() => {
-    $emojis().forEach((div, ind) => {
-      div.setAttribute("data-emoji", emojiChoices[ind]);
-      div.addEventListener("click", function(e) {
-        e.stopPropagation();
-        $feedbackIzzle().classList.add("stage-2");
-        $typeInput().classList.remove("hidden");
-        setFeedback(this.getAttribute("data-emoji"));
-      });
-    });
-  }, []);
-
   const sendButton = () => {
     $typeInput().classList.add("hidden");
     $feedbackIzzle().classList.remove("stage-2", "expand");
@@ -52,15 +40,31 @@ export default function FeedbackIzzle() {
       .then(function(res) {});
   };
 
-  const test = () => console.log("test");
+  const nextStage = () => {
+    console.log("fired");
+
+    setStageCount(stageCount + 1);
+  };
+
+  const resetStage = () => {
+    setStageCount(0);
+  };
 
   return (
-    <div className="containment">
-      <Thoughts test={test} />
+    <div className={`containment stage-${stageCount}`}>
+      <Thoughts
+        nextStage={nextStage}
+        stageCount={stageCount}
+        resetStage={resetStage}
+      />
       <div className="feedbackizzle">
         <div className="feedbackizzle-position">
           <div className="feedbackizzle-style noselect">
-            <Emojis />
+            <Emojis
+              nextStage={nextStage}
+              stageCount={stageCount}
+              setFeedback={setFeedback}
+            />
             <UserInput sendButton={sendButton} />
           </div>
         </div>

@@ -3,11 +3,12 @@ import React from "react";
 export default function UserInput({ sendButton } = props) {
   return (
     <div
-      className="typed-input hidden"
+      className="typed-input"
       onClick={e => {
         e.stopPropagation();
       }}
     >
+      <input id="contact" placeholder="From@"></input>
       <textarea
         name="feedbackizzle-text"
         id="feedbackizzle-text"
@@ -15,8 +16,7 @@ export default function UserInput({ sendButton } = props) {
         rows="3"
         placeholder="Be 🕶️"
       ></textarea>
-      <input id="feedbackizzle-contact" placeholder="@"></input>
-      <button onClick={sendButton}>Send</button>
+      <button onClick={sendButton}>✉️</button>
     </div>
   );
 }
