@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import './index.css'
+import './index.less'
 
-// Simple render like this;
+
 export default function FeedbackIzzle() {
   const emojiChoices = ["happy", "meh", "mad"]
   const [feedback, setFeedback] = useState('')
   const $feedbackIzzle = () => document.querySelector(".feedbackizzle")
   const $emojis = () => document.querySelectorAll(".feedback-choices div")
-  const $typeInput = () => document.querySelector(".feedbackizzle div.typed-input");
+  const $typeInput = () => document.querySelector(".feedbackizzle div.typed-input")
 
   useEffect(() => {
     $emojis().forEach((div, ind) => {
@@ -17,8 +17,8 @@ export default function FeedbackIzzle() {
         $feedbackIzzle().classList.add("stage-2")
         $typeInput().classList.remove("hidden")
         setFeedback(this.getAttribute("data-emoji"))
-      });
-    });
+      })
+    })
   }, [])
 
   const sendButton = () => {
@@ -41,44 +41,52 @@ export default function FeedbackIzzle() {
       body: JSON.stringify(inp)
     })
       .then(function (response) {
-        return response.text();
+        return response.text()
       })
       .then(function (res) {
 
-      });
+      })
   }
 
   return (
-    <div
-      className="feedbackizzle"
-      onClick={(e) => {
-        e.currentTarget.classList.toggle('expand')
-      }}
-    >
-      <div className="feedbackizzle-position">
-        <div className="feedbackizzle-style noselect">
-          <div
-            className="feedback-choices"
-            onClick={(e) => {
-              e.stopPropagation()
-            }}>
-            <div className="happy">😀</div>
-            <div className="meh">😐</div>
-            <div className="upset">😡</div>
+    <div className="containment">
+      <div className="thoughts"
+        onClick={(e) => {
+          e.currentTarget.nextElementSibling.classList.toggle('expand')
+          e.currentTarget.parentElement.classList.toggle("expand")
+        }
+        }>
+        <span className='first'>💬</span>
+        <span className='second hidden'>✔️🙏</span>
+      </div>
+      <div
+        className="feedbackizzle"
+      >
+        <div className="feedbackizzle-position">
+          <div className="feedbackizzle-style noselect">
+            <div
+              className="feedback-choices"
+              onClick={(e) => {
+                e.stopPropagation()
+              }}>
+              <div className="happy">😀</div>
+              <div className="meh">😐</div>
+              <div className="upset">😡</div>
+            </div>
+            <div
+              className="typed-input hidden"
+              onClick={(e) => {
+                e.stopPropagation()
+              }}
+            >
+              <textarea name="feedbackizzle-text" id="feedbackizzle-text" cols="30" rows="3" placeholder="Be 🕶️"></textarea>
+              <input id="feedbackizzle-contact" placeholder='@'></input>
+              <button onClick={sendButton}>Send</button>
+            </div>
+
           </div>
-          <div
-            className="typed-input hidden"
-            onClick={(e) => {
-              e.stopPropagation()
-            }}
-          >
-            <textarea name="feedbackizzle-text" id="feedbackizzle-text" cols="30" rows="3" placeholder="Be 🕶️"></textarea>
-            <input id="feedbackizzle-contact" placeholder='@'></input>
-            <button onClick={sendButton}>Send</button>
-          </div>
-          <div className="thoughts"><span className='first'>💬</span><span className='second hidden'>✔️🙏</span></div>
         </div>
       </div>
-    </div>
-  );
+    </div >
+  )
 }
