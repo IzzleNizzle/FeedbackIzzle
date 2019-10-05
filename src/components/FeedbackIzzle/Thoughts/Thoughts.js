@@ -5,7 +5,7 @@ export default function Thoughts({
   nextStage,
   resetStage
 } = props) {
-  const options = ["🙋💬", "✖️", "✔️🙏"];
+  const options = ["🙋💬", "✖️", "🙏", "✔️🙏"];
   return (
     <div
       className="thoughts"

@@ -3,27 +3,25 @@ import Thoughts from "./Thoughts/Thoughts";
 import Emojis from "./Emojis/Emojis";
 import UserInput from "./UserInput/UserInput";
 import "./index.less";
+import useFormInput from "../../hooks/useFormInput"
 
 export default function FeedbackIzzle() {
-  const emojiChoices = ["happy", "meh", "mad"];
+  const contactName = useFormInput('')
+  const feedbackBody = useFormInput('')
   const [stageCount, setStageCount] = useState(0);
   const [feedback, setFeedback] = useState("");
-  const $feedbackIzzle = () => document.querySelector(".feedbackizzle");
-  const $emojis = () => document.querySelectorAll(".feedback-choices div");
-  const $typeInput = () =>
-    document.querySelector(".feedbackizzle div.typed-input");
+
 
   const sendButton = () => {
-    $typeInput().classList.add("hidden");
-    $feedbackIzzle().classList.remove("stage-2", "expand");
-    $feedbackIzzle().classList.add("done");
-    document.querySelector("div.thoughts span.first").classList.add("hidden");
-    document
-      .querySelector("div.thoughts span.second")
-      .classList.remove("hidden");
-    const comment = document.getElementById("feedbackizzle-text").value;
-    const contact = document.getElementById("feedbackizzle-contact").value;
-    sendData({ feedback, comment, contact });
+    const { value: contact } = contactName
+    const { value: body } = feedbackBody
+    console.log('====================================');
+    console.log({
+      contact, body, feedback
+    });
+    console.log('====================================');
+    stageCount === 2 ? nextStage() : null
+
   };
 
   const sendData = inp => {
@@ -34,15 +32,13 @@ export default function FeedbackIzzle() {
       },
       body: JSON.stringify(inp)
     })
-      .then(function(response) {
+      .then(function (response) {
         return response.text();
       })
-      .then(function(res) {});
+      .then(function (res) { });
   };
 
   const nextStage = () => {
-    console.log("fired");
-
     setStageCount(stageCount + 1);
   };
 
@@ -65,7 +61,11 @@ export default function FeedbackIzzle() {
               stageCount={stageCount}
               setFeedback={setFeedback}
             />
-            <UserInput sendButton={sendButton} />
+            <UserInput
+              sendButton={sendButton}
+              contactName={contactName}
+              feedbackBody={feedbackBody}
+            />
           </div>
         </div>
       </div>
