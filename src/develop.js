@@ -1,7 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import LikeButton from './FeedbackIzzle'
-import help from './Helpfulz'
+import React from "react";
+import ReactDOM from "react-dom";
+import LikeButton from "./components/FeedbackIzzle";
 
-help()
-ReactDOM.render(<LikeButton />, document.querySelector('body'));
+ReactDOM.render(<LikeButton />, document.querySelector("body"));

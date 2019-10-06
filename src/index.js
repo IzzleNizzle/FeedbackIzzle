@@ -1,2 +1,2 @@
-export { default } from "./FeedbackIzzle"
-export { default as helpful } from "./Helpfulz"
+export { default } from "./components/FeedbackIzzle";
+export { default as helpful } from "./Helpfulz";

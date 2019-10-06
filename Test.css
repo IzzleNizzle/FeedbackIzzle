@@ -1,92 +1,123 @@
-.feedbackizzle button {
-  vertical-align: top;
-  background-color: yellow;
+.containment {
+  position: fixed;
+  bottom: -30px;
+  right: 27px;
+  text-align: right;
+  transition: bottom 0.4s, background-color 0.5s, border 0.6s;
+  transition-timing-function: ease-in;
 }
-
+.containment .here {
+  color: blue;
+}
+.containment.expand .thoughts {
+  background-color: #6e6ee0;
+  bottom: -1px;
+  border: 1px #4d4df6 solid;
+  border-bottom: none;
+}
+.containment .thoughts {
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: #7777e157;
+  cursor: pointer;
+  position: relative;
+  border: 1px #8777e100 solid;
+  bottom: 0px;
+  border-radius: 2px 2px 0 0;
+}
+.containment.expand {
+  bottom: 0;
+}
+.containment .hidden {
+  display: none;
+}
 .feedbackizzle {
   background-color: #7777e157;
   text-align: center;
-  position: fixed;
-  bottom: 0px;
-  right: 27px;
   width: 46px;
   height: 29px;
-  border: 1px #4d4df6 solid;
-  border-bottom: none;
-  border-radius: 2px 2px 0 0;
-  transition: height 0.4s, width 0.5s;
+  border-radius: 2px 0px 0 0;
+  transition: height 0.4s, width 0.5s, border 0.6s;
   transition-timing-function: ease-in;
 }
-
 .feedbackizzle .feedbackizzle-style div {
   transition: text-shadow 0.2s;
   transition-timing-function: ease-in;
 }
-
 .feedbackizzle.expand {
   background-color: #6e6ee0;
   color: white;
-  width: 270px;
+  width: 250px;
   height: 45px;
+  border: 1px #4d4df6 solid;
+  border-bottom: none;
 }
-
 .feedbackizzle.done {
   width: initial;
 }
-
 .feedbackizzle.expand.stage-2 {
-  height: 180px;
+  height: 145px;
 }
-
 .feedbackizzle.expand .feedback-choices,
 .feedbackizzle.expand .feedback-choices div {
   display: inline-block;
 }
-
 .feedbackizzle.expand .thoughts,
 .feedbackizzle.expand .feedback-choices div {
   padding: 3px 10px 0;
 }
-
 .feedbackizzle div.thoughts {
   z-index: 1;
   padding: 3px 10px 0 15px;
 }
-
 .feedbackizzle .thoughts:hover,
 .feedbackizzle .thoughts:focus,
 .feedbackizzle.expand .feedback-choices div:hover,
 .feedbackizzle.expand .feedback-choices div:focus {
   text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
 }
-
 .feedbackizzle .thoughts:active,
-.feedbackizzle.expand .feedback-choices div:active {
+.feedbackizzle.expand .feedback-choices div:active,
+.feedbackizzle .pressed {
   text-shadow: rgba(0, 0, 0, 0.9) 1px 1px 4px;
   transform: translateY(2px);
 }
-
 .feedbackizzle .feedback-choices {
   display: none;
   font-size: 0;
 }
-
 .feedbackizzle .thoughts {
-  display: inline-block;
+  position: relative;
   cursor: default;
-  padding: 3px 10px;
+  right: -1px;
   float: right;
+  top: 0;
+  transition: top 0.4s, background-color 0.5s;
+  transition-timing-function: ease-in;
 }
-
 .feedbackizzle .feedbackizzle-style .feedback-choices div {
   font-size: xx-large;
   cursor: pointer;
 }
-
 .feedbackizzle.expand .thoughts {
+  background-color: #6e6ee0;
+  border: 1px #4d4df6 solid;
+  border-radius: 2px 2px 0 0;
+  border-bottom: 0;
   font-size: initial;
+  position: relative;
+  top: -27px;
 }
-
+.feedbackizzle .typed-input {
+  display: none;
+}
+.feedbackizzle.expand.stage-2 .typed-input {
+  display: block;
+}
+.feedbackizzle button {
+  vertical-align: top;
+  background-color: yellow;
+}
 .feedbackizzle .noselect {
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -100,8 +131,4 @@
   /* Internet Explorer/Edge */
   user-select: none;
   /* Chrome and Opera */
-}
-
-.hidden {
-  display: none;
 }

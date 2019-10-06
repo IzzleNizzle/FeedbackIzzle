@@ -8,12 +8,26 @@ module.exports = {
     ],
     module: {
         rules: [
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         'style-loader',
+            //         'css-loader'
+            //     ]
+            // },
             {
-                test: /\.css$/,
+                test: /\.less$/,
                 use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                    {
+                        loader: 'style-loader', // creates style nodes from JS strings
+                    },
+                    {
+                        loader: 'css-loader', // translates CSS into CommonJS
+                    },
+                    {
+                        loader: 'less-loader', // compiles Less to CSS
+                    },
+                ],
             },
             {
                 test: /\.js$/,

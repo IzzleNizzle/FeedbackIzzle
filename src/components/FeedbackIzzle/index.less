@@ -1,0 +1,178 @@
+ .containment {
+   // As this package will be imported into pages, I am taking extra precautions to avoid conflicting css selectors
+   //  @import "./Thoughts/thought.less";
+
+
+   position: fixed;
+   //  display: inline-block;
+
+   bottom: -145px;
+   right: 27px;
+   text-align: right;
+   transition: bottom 0.4s, background-color 0.5s, border 0.6s;
+   transition-timing-function: ease-in;
+
+   &.stage-1 {
+     bottom: -100px;
+   }
+
+   &.stage-2 {
+     bottom: 0px;
+   }
+
+   &.stage-1 .thoughts,
+   &.stage-2 .thoughts {
+     background-color: #6e6ee0;
+     bottom: -1px;
+     border: 1px #4d4df6 solid;
+     border-bottom: none;
+   }
+
+   & .thoughts {
+     display: inline-block;
+     padding: 3px 10px;
+     background-color: #7777e157;
+     cursor: pointer;
+     border: 1px #8777e100 solid;
+     border-radius: 2px 2px 0 0;
+
+   }
+
+   .hidden {
+     display: none;
+   }
+
+   .contact {
+     margin-bottom: 5px;
+   }
+ }
+
+ .feedbackizzle {
+   background-color: #7777e157;
+   text-align: center;
+
+   width: 330px;
+
+   // border: 1px #8777e100 solid;
+   border-radius: 2px 0px 0 0;
+   transition: height 0.4s, width 0.5s, border 0.6s;
+   transition-timing-function: ease-in;
+
+   & .feedbackizzle-style div {
+     transition: text-shadow 0.2s;
+     transition-timing-function: ease-in;
+   }
+
+   &.expand {
+     background-color: #6e6ee0;
+     color: white;
+     //  height: 45px;
+     border: 1px #4d4df6 solid;
+     border-bottom: none;
+   }
+
+   &.done {
+     width: initial;
+   }
+
+   //  &.expand.stage-2 {
+   //    height: 145px;
+   //  }
+
+   .feedback-choices,
+   .feedback-choices div {
+     display: inline-block;
+   }
+
+   .thoughts,
+   .feedback-choices div {
+     padding: 3px 10px 0;
+   }
+
+   & div.thoughts {
+     z-index: 1;
+     padding: 3px 10px 0 15px;
+   }
+
+   & .thoughts:hover,
+   & .thoughts:focus,
+   &.expand .feedback-choices div:hover,
+   &.expand .feedback-choices div:focus {
+     text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
+   }
+
+   & .thoughts:active,
+   &.expand .feedback-choices div:active,
+   .pressed {
+     text-shadow: rgba(0, 0, 0, 0.9) 1px 1px 4px;
+     transform: translateY(2px);
+   }
+
+   .feedback-choices {
+     font-size: 0;
+     //  display: inline-block;
+
+   }
+
+   .thoughts {
+     position: relative;
+     cursor: default;
+     right: -1px;
+     float: right;
+     top: 0;
+     transition: top 0.4s, background-color 0.5s;
+     transition-timing-function: ease-in;
+   }
+
+   & .feedbackizzle-style .feedback-choices div {
+     font-size: xx-large;
+     cursor: pointer;
+   }
+
+   &.expand .thoughts {
+     background-color: #6e6ee0;
+     border: 1px #4d4df6 solid;
+     border-radius: 2px 2px 0 0;
+     border-bottom: 0;
+     font-size: initial;
+     position: relative;
+     top: -27px;
+   }
+
+   &.expand.stage-2 .typed-input {
+     display: block;
+   }
+
+   .typed-input {
+     text-align: left;
+     padding: 10px;
+   }
+
+   input {
+     margin-bottom: 10px;
+   }
+
+   button {
+     margin: 0 5px;
+     float: right;
+     background: #00000057;
+     border: none;
+     cursor: pointer;
+   }
+
+   & .noselect {
+     -webkit-touch-callout: none;
+     /* iOS Safari */
+     -webkit-user-select: none;
+     /* Safari */
+     -khtml-user-select: none;
+     /* Konqueror HTML */
+     -moz-user-select: none;
+     /* Firefox */
+     -ms-user-select: none;
+     /* Internet Explorer/Edge */
+     user-select: none;
+     /* Chrome and Opera */
+   }
+
+ }
