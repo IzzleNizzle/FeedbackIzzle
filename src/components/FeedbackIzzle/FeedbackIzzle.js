@@ -3,25 +3,19 @@ import Thoughts from "./Thoughts/Thoughts";
 import Emojis from "./Emojis/Emojis";
 import UserInput from "./UserInput/UserInput";
 import "./index.less";
-import useFormInput from "../../hooks/useFormInput"
+import useFormInput from "../../hooks/useFormInput";
 
 export default function FeedbackIzzle() {
-  const contactName = useFormInput('')
-  const feedbackBody = useFormInput('')
+  const contactName = useFormInput("");
+  const feedbackBody = useFormInput("");
   const [stageCount, setStageCount] = useState(0);
   const [feedback, setFeedback] = useState("");
 
-
   const sendButton = () => {
-    const { value: contact } = contactName
-    const { value: body } = feedbackBody
-    console.log('====================================');
-    console.log({
-      contact, body, feedback
-    });
-    console.log('====================================');
-    stageCount === 2 ? nextStage() : null
-
+    const { value: contact } = contactName;
+    const { value: body } = feedbackBody;
+    stageCount === 2 ? nextStage() : null;
+    sendData({ contact, body, feedback });
   };
 
   const sendData = inp => {
@@ -32,10 +26,10 @@ export default function FeedbackIzzle() {
       },
       body: JSON.stringify(inp)
     })
-      .then(function (response) {
+      .then(function(response) {
         return response.text();
       })
-      .then(function (res) { });
+      .then(function(res) {});
   };
 
   const nextStage = () => {

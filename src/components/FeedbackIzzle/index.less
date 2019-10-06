@@ -4,6 +4,8 @@
 
 
    position: fixed;
+   //  display: inline-block;
+
    bottom: -145px;
    right: 27px;
    text-align: right;
@@ -31,9 +33,7 @@
      padding: 3px 10px;
      background-color: #7777e157;
      cursor: pointer;
-     position: relative;
      border: 1px #8777e100 solid;
-     bottom: 0px;
      border-radius: 2px 2px 0 0;
 
    }
@@ -51,8 +51,8 @@
    background-color: #7777e157;
    text-align: center;
 
-   width: 46px;
-   height: 145px;
+   width: 330px;
+
    // border: 1px #8777e100 solid;
    border-radius: 2px 0px 0 0;
    transition: height 0.4s, width 0.5s, border 0.6s;
@@ -66,7 +66,6 @@
    &.expand {
      background-color: #6e6ee0;
      color: white;
-     width: 330px;
      //  height: 45px;
      border: 1px #4d4df6 solid;
      border-bottom: none;
@@ -80,13 +79,13 @@
    //    height: 145px;
    //  }
 
-   &.expand .feedback-choices,
-   &.expand .feedback-choices div {
+   .feedback-choices,
+   .feedback-choices div {
      display: inline-block;
    }
 
-   &.expand .thoughts,
-   &.expand .feedback-choices div {
+   .thoughts,
+   .feedback-choices div {
      padding: 3px 10px 0;
    }
 
@@ -110,8 +109,9 @@
    }
 
    .feedback-choices {
-     display: none;
      font-size: 0;
+     //  display: inline-block;
+
    }
 
    .thoughts {
